@@ -115,7 +115,7 @@ public class JobsFragmentStudent extends Fragment {
                 studentViewJobViewHolder.companyName.setText("Company Name : "+viewJobsStudent.getCompanyname());
                 studentViewJobViewHolder.jobPost.setText(viewJobsStudent.getJobpost());
                 studentViewJobViewHolder.companyDescription.setText("Company Description : "+viewJobsStudent.getCompanydescription());
-                studentViewJobViewHolder.workingtype.setText("Working Type : "+viewJobsStudent.getWorkingtype());
+                studentViewJobViewHolder.workingtype.setText("Field : "+viewJobsStudent.getWorkingtype());
 
                 studentViewJobViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

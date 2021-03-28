@@ -4,6 +4,16 @@ public class StoreStudentProfile {
     String name,email,phone,city,qualification,collegeName,passingYear;
     String fields;
 
+    public StoreStudentProfile() {
+    }
+
+    public StoreStudentProfile(String name, String email, String qualification, String fields) {
+        this.name = name;
+        this.email = email;
+        this.qualification = qualification;
+        this.fields = fields;
+    }
+
     public StoreStudentProfile(String name, String email, String phone, String city, String qualification, String collegeName, String passingYear, String fields) {
         this.name = name;
         this.email = email;

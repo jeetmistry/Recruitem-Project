@@ -28,7 +28,7 @@ public class LoginOption extends AppCompatActivity {
 
         models = new ArrayList<>();
         models.add(new Model(R.drawable.student, "Student", "Click for Student Login"));
-        models.add(new Model(R.drawable.recruter, "Recruiter", "Click for Recruiter Login"));
+        models.add(new Model(R.drawable.recruter, "TPO", "Click for TPO Login"));
         models.add(new Model(R.drawable.admin, "Admin", "Click for Admin Login"));
         models.add(new Model(R.drawable.aboutus, "About Us", "About Student Placement Application."));
 

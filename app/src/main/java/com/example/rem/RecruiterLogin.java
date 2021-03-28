@@ -51,7 +51,7 @@ public class RecruiterLogin extends AppCompatActivity {
                 userRef=rootRef.child("recruiter");
                 useridRef = userRef.child(userid);
                 final ProgressDialog pd = new ProgressDialog(RecruiterLogin.this);
-                pd.setTitle("Logging Recruiter");
+                pd.setTitle("Logging TPO");
                 pd.setMessage("Please wait logging in");
                 pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 pd.show();

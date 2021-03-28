@@ -3,6 +3,19 @@ package com.example.rem.Model;
 public class ViewJobsStudent {
     public String companyname, companydescription,jobpost,workingtype;
 
+    public ViewJobsStudent(String field) {
+        this.field = field;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public String field;
     public ViewJobsStudent() {
 
     }

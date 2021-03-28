@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.rem.Model.ApplyJobStudent;
 import com.example.rem.Model.ViewApplicationsStudent;
 import com.example.rem.R;
 import com.example.rem.RecruiterNavigation;
@@ -29,14 +30,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class RecruiterApplicationCardClickActivity extends AppCompatActivity {
-    public TextView jobpost, companyname, companydescription, workingtype,status;
+    public TextView jobpost, companyname, companydescription, workingtype,status,name,qualification,field,uid,email;
     Button accept;
-    String job,compname,compdesc,worktype, userid,statuss,key;
+    String job,compname,compdesc,worktype, userid,statuss,studuid,studname,studquali,studfield,studemail,key;
 
     //Database variables
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference rootRef,userRef,userIdRef,appliedJobRef;
+    DatabaseReference rootRef,userRef,userIdRef,appliedJobRef,jobRef,branchRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,17 +48,13 @@ public class RecruiterApplicationCardClickActivity extends AppCompatActivity {
         companydescription = findViewById(R.id.recruiter_application_cardclick_companydescription);
         workingtype = findViewById(R.id.recruiter_application_cardclick_workingtype);
         status = findViewById(R.id.recruiter_application_cardclick_status);
+        email = findViewById(R.id.recruiter_application_cardclick_email);
+        uid=findViewById(R.id.recruiter_application_cardclick_uid);
+        name = findViewById(R.id.recruiter_application_cardclick_name);
+        qualification = findViewById(R.id.recruiter_application_cardclick_qualification);
+        field = findViewById(R.id.recruiter_application_cardclick_field);
+
         accept = findViewById(R.id.recruiter_application_cardclick_acceptbtn);
-
-
-        //initializing database variables
-        firebaseAuth = FirebaseAuth.getInstance();
-        userid = firebaseAuth.getCurrentUser().getUid();
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        rootRef = firebaseDatabase.getReference();
-        userRef = rootRef.child("student");
-        userIdRef = userRef.child("KIuCq2YHdSgo353RAwZ4wR91Jpd2");
-
 
         //receiving extras from card
         Intent intent = getIntent();
@@ -66,6 +63,22 @@ public class RecruiterApplicationCardClickActivity extends AppCompatActivity {
         compdesc = intent.getStringExtra("company description");
         worktype = intent.getStringExtra("working type");
         statuss = intent.getStringExtra("status");
+        studuid=intent.getStringExtra("uid");
+        studname = intent.getStringExtra("name");
+        studquali = intent.getStringExtra("qualification");
+        studfield = intent.getStringExtra("student field");
+        studemail = intent.getStringExtra("email");
+        //initializing database variables
+        firebaseAuth = FirebaseAuth.getInstance();
+        userid = firebaseAuth.getCurrentUser().getUid();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        rootRef = firebaseDatabase.getReference();
+        userRef = rootRef.child("student");
+        userIdRef = userRef.child(studuid);
+        jobRef = rootRef.child("Job Applications");
+        branchRef = jobRef.child(worktype).child(studuid);
+
+
 
         appliedJobRef = userIdRef.child("Applied Applications");
 
@@ -73,8 +86,14 @@ public class RecruiterApplicationCardClickActivity extends AppCompatActivity {
         jobpost.setText("Job Post : "+job);
         companyname.setText("Company Name : "+compname);
         companydescription.setText("Company Description : "+compdesc);
-        workingtype.setText("Working Type : "+worktype);
-        status.setText("Status : Applied");
+        workingtype.setText("Job Field : "+worktype);
+        status.setText("Status : "+statuss);
+        name.setText("Name : "+studname);
+        email.setText("Email : "+studemail);
+        qualification.setText("Qualification : "+studquali);;
+        uid.setText("Uid : "+studuid);
+        uid.setVisibility(View.INVISIBLE);
+        field.setText("Student Field : "+studfield);
 
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +133,9 @@ public class RecruiterApplicationCardClickActivity extends AppCompatActivity {
         String status = "Rejected";
         ViewApplicationsStudent vas = new ViewApplicationsStudent(job,compname,compdesc,worktype,status);
         appliedJobRef.child(job).setValue(vas);
+        ApplyJobStudent ajs = new ApplyJobStudent(compname,compdesc,job,worktype,studname,studemail,studquali,studfield,status,studuid);
+        branchRef.setValue(ajs);
+
 
         //notification
         Uri noti = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -143,6 +165,9 @@ public class RecruiterApplicationCardClickActivity extends AppCompatActivity {
         String status = "Pending";
         ViewApplicationsStudent vas = new ViewApplicationsStudent(job,compname,compdesc,worktype,status);
         appliedJobRef.child(job).setValue(vas);
+        ApplyJobStudent ajs = new ApplyJobStudent(compname,compdesc,job,worktype,studname,studemail,studquali,studfield,status,studuid);
+        branchRef.setValue(ajs);
+
 
         //notification
         String text = "The job application for post "+job+" has been viewed and under scrunity ";
@@ -173,6 +198,8 @@ public class RecruiterApplicationCardClickActivity extends AppCompatActivity {
         String status = "Accepted";
         ViewApplicationsStudent vas = new ViewApplicationsStudent(job,compname,compdesc,worktype,status);
         appliedJobRef.child(job).setValue(vas);
+        ApplyJobStudent ajs = new ApplyJobStudent(compname,compdesc,job,worktype,studname,studemail,studquali,studfield,status,studuid);
+        branchRef.setValue(ajs);
 
         //notification
         Uri noti = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);

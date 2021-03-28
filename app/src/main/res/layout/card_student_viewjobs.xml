@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/student_viewjobs_card_workingtype"
         android:layout_marginTop="140dp"
-        android:text="Working Type"
+        android:text="Field"
         android:textSize="20dp"
         android:layout_marginLeft="5dp"
         />

@@ -39,7 +39,7 @@ public class AddjobsFragmentRecruiter extends Fragment {
     //declaring database variables
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference rootRef,userRef,userIdRef,jobref;
+    DatabaseReference rootRef,userRef,userIdRef,jobref,allJobRef,allJob;
     private AddjobsViewModelRecruiter addjobsViewModelRecruiter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -63,7 +63,7 @@ public class AddjobsFragmentRecruiter extends Fragment {
         rootRef = firebaseDatabase.getReference();
         userRef=rootRef.child("recruiter");
         userIdRef = userRef.child(userid);
-
+        allJob = rootRef.child("All Jobs");
 
         //set values in database by button click
         submitPost.setOnClickListener(new View.OnClickListener() {
@@ -94,11 +94,12 @@ public class AddjobsFragmentRecruiter extends Fragment {
 
                 //creating unique id for a particular job
                 jobref = userIdRef.child("Jobs").push();
-
+                allJobRef = allJob.push();
                 //storing the jo in database
                 if (!TextUtils.isEmpty(companyname) && !TextUtils.isEmpty(companydescription) && !TextUtils.isEmpty(jobpost) && !TextUtils.isEmpty(workingType)) {
                     ViewJobsRecruiter vjr = new ViewJobsRecruiter(companyname,companydescription,jobpost,workingType);
                     jobref.setValue(vjr);
+                    allJobRef.setValue(vjr);
                     jobPost.setText("");
                     companyName.setText("");
                     companyDescription.setText("");

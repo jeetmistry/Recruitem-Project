@@ -15,9 +15,14 @@
         android:roundIcon="@mipmap/ic_remlogo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ui_recruiter.RecruiterApplicationCardClickActivity"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
+        <activity android:name=".ui_recruiter.RecruiterApplication"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".ui_recruiter.RecruiterViewApplications"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".ui_recruiter.RecruiterApplicationCardClickActivity"
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".ui_student.StudentJobCardClickActivity"
             android:theme="@style/Theme.AppCompat" />

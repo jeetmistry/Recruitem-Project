@@ -87,10 +87,10 @@
             android:textColorHint="#000000">
 
             <EditText
+                android:id="@+id/recruiter_addjobs_worktype"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/recruiter_addjobs_worktype"
-                android:hint="Work from home / workplace"
+                android:hint="Job Type : eg: IT,CO,EXTC,ETRX"
                 android:imeOptions="actionNext"
                 android:textColorHint="@color/colorBlue" />
 

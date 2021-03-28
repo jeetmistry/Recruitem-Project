@@ -153,6 +153,7 @@ public class ProfileFragmentStudent extends Fragment {
         String userId= firebaseAuth.getCurrentUser().getUid().toString();
         userIdRef=userRef.child(userId);
         profileRef=userIdRef.child("profile");
+
         student_profile_resumesavebutton = root.findViewById(R.id.student_profile_resumesavebutton);
 
         profileRef.addValueEventListener(new ValueEventListener() {

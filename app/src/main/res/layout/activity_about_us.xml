@@ -57,33 +57,21 @@
                 android:textSize="18dp"
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Siddhi Patil"
-                android:textSize="18dp"
                 android:layout_marginLeft="10dp"
+                android:text="Kadambari Patangrao"
+                android:textSize="18dp"
                 android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Gauri Mohape"
-                android:textSize="18dp"
                 android:layout_marginLeft="10dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Raviraj Dange"
+                android:text="Sarika Shete"
                 android:textSize="18dp"
-                android:layout_marginLeft="10dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Abhishek Sawle"
-                android:textSize="18dp"
-                android:layout_marginLeft="10dp"
                 android:textStyle="bold" />
 
         </LinearLayout>

@@ -43,9 +43,9 @@
 
     <fragment
         android:id="@+id/nav_viewapplications_recruiter"
-        android:name="com.example.rem.ui_recruiter.viewapplications_recruiter.ViewapplicationsFragmentRecruiter"
+        android:name="com.example.rem.ui_recruiter.viewapplicationsbranches_recruiter.ViewapplicationsBranchesFragmentRecruiter"
         android:label="@string/menu_viewapplications_recruiter"
-        tools:layout="@layout/fragment_viewapplications_recruiter"/>
+        tools:layout="@layout/fragment_viewbranches_recruiter"/>
 
     <fragment
         android:id="@+id/nav_logout_recruiter"

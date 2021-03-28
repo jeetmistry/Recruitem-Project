@@ -69,7 +69,7 @@ public class Adapter extends PagerAdapter {
                 }
 
                 //for Recruiter login activity
-                if(models.get(position).getTitle().equals("Recruiter")) {
+                if(models.get(position).getTitle().equals("TPO")) {
                     Intent intent = new Intent(context, RecruiterLogin.class);
                     intent.putExtra("param", models.get(position).getTitle());
                     context.startActivity(intent);

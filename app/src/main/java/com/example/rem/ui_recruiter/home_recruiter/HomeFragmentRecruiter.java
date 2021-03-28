@@ -84,7 +84,9 @@ public class HomeFragmentRecruiter extends Fragment {
 
                     fieldofinterest.setVisibility(View.VISIBLE);
                     personal.setVisibility(View.VISIBLE);
+                    personal.setText("TPO DETAILS");
                     compdet.setVisibility(View.VISIBLE);
+                    compdet.setText("TPO COLLEGE DETAILS");
                     profileImage.setVisibility(View.VISIBLE);
 
 
@@ -92,8 +94,8 @@ public class HomeFragmentRecruiter extends Fragment {
                     name.setText("Name : "+Name);
                     emailid.setText("Email : "+email);
                     phoneno.setText("Phone : "+phone);
-                    companyname.setText("Company Name : "+Companyname);
-                    companylocation.setText("Company Location : "+Companylocation);
+                    companyname.setText("College Name : "+Companyname);
+                    companylocation.setText("College Location : "+Companylocation);
                     fieldofinterest.setText("Field : "+field);
 
 

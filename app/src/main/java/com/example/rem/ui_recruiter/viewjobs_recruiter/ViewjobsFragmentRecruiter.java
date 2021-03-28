@@ -36,7 +36,7 @@ public class ViewjobsFragmentRecruiter extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference rootRef,userRef,userIdRef,jobRef,deletedJobRef;
+    private DatabaseReference rootRef,userRef,userIdRef,jobRef,deletedJobRef,deletedJobRoot;
     private String userid;
 
     private ViewjobsViewModelRecruiter viewjobsViewModelRecruiter;
@@ -58,7 +58,7 @@ public class ViewjobsFragmentRecruiter extends Fragment {
         userIdRef= userRef.child(userid);
         jobRef = userIdRef.child("Jobs");
         deletedJobRef = userIdRef.child("Deleted Jobs");
-
+        deletedJobRoot = rootRef.child("Deleted Jobs");
         return root;
     }
 
@@ -100,7 +100,7 @@ public class ViewjobsFragmentRecruiter extends Fragment {
                                         workingtype=viewJobsRecruiter.getWorkingtype();
                                         ViewJobsRecruiter vjr = new ViewJobsRecruiter(job,companyname,companydescription,workingtype);
                                         deletedJobRef.push().setValue(vjr);
-
+                                        deletedJobRoot.push().setValue(vjr);
                                         //deleting the current job
                                         jobRef.child(key).removeValue();
                                         break;

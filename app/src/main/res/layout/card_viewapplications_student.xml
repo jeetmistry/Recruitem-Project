@@ -40,15 +40,15 @@
         android:layout_marginBottom="10dp"
         android:text="Company Description"
         android:textSize="20dp" />
+
     <TextView
+        android:id="@+id/student_viewapplications_card_workingtype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/student_viewapplications_card_workingtype"
-        android:layout_marginTop="140dp"
-        android:text="Working Type"
-        android:textSize="20dp"
         android:layout_marginLeft="5dp"
-        />
+        android:layout_marginTop="140dp"
+        android:text="Field"
+        android:textSize="20dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

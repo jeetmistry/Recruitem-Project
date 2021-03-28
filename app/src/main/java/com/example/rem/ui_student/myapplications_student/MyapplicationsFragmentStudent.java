@@ -34,7 +34,7 @@ public class MyapplicationsFragmentStudent extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference rootRef,userRef,userIdRef,appliedJobsRef;
+    private DatabaseReference rootRef,userRef,userIdRef,appliedJobsRef,jobRef,branchRef;
     String userid;
 
     private MyapplicationsViewModelStudent myapplicationsViewModelStudent;
@@ -44,6 +44,7 @@ public class MyapplicationsFragmentStudent extends Fragment {
         myapplicationsViewModelStudent =
                 ViewModelProviders.of(this).get(MyapplicationsViewModelStudent.class);
         View root = inflater.inflate(R.layout.fragment_myapplications_student, container, false);
+
         myapplicationsRecycler = root.findViewById(R.id.recyclerView_myapplications_student);
         layoutManager =new LinearLayoutManager(getContext());
         myapplicationsRecycler.setLayoutManager(layoutManager);
@@ -54,6 +55,7 @@ public class MyapplicationsFragmentStudent extends Fragment {
         userRef = rootRef.child("student");
         userIdRef = userRef.child(userid);
         appliedJobsRef = userIdRef.child("Applied Applications");
+        jobRef=rootRef.child("Job Applications");
         return root;
     }
 
@@ -67,12 +69,12 @@ public class MyapplicationsFragmentStudent extends Fragment {
 
         FirebaseRecyclerAdapter<ViewApplicationsStudent,StudentViewMyApplicationsViewHolder> adapter = new FirebaseRecyclerAdapter<ViewApplicationsStudent, StudentViewMyApplicationsViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull StudentViewMyApplicationsViewHolder studentViewMyApplicationsViewHolder, final int i, @NonNull ViewApplicationsStudent viewApplicationsStudent) {
+            protected void onBindViewHolder(@NonNull StudentViewMyApplicationsViewHolder studentViewMyApplicationsViewHolder, final int i, @NonNull final ViewApplicationsStudent viewApplicationsStudent) {
                     if(studentViewMyApplicationsViewHolder.isRecyclable()) {
                         studentViewMyApplicationsViewHolder.jobPost.setText(viewApplicationsStudent.getJobpost());
                         studentViewMyApplicationsViewHolder.companyName.setText("Company Name : " + viewApplicationsStudent.getCompanyname());
                         studentViewMyApplicationsViewHolder.companyDescription.setText("Company Description : " + viewApplicationsStudent.getCompanydescription());
-                        studentViewMyApplicationsViewHolder.workingtype.setText("Working Type : " + viewApplicationsStudent.getWorkingtype());
+                        studentViewMyApplicationsViewHolder.workingtype.setText("Job Field: " + viewApplicationsStudent.getWorkingtype());
                         studentViewMyApplicationsViewHolder.status.setText("Status : " + viewApplicationsStudent.getStatus());
 
                         studentViewMyApplicationsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +90,7 @@ public class MyapplicationsFragmentStudent extends Fragment {
                                             case 0:
                                                 String key = getRef(i).getKey();
                                                 appliedJobsRef.child(key).removeValue();
+                                                jobRef.child(viewApplicationsStudent.getWorkingtype()).child(userid).removeValue();
                                                 break;
                                             case 1:
                                                 dialog.cancel();
