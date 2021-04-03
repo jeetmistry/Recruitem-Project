@@ -84,23 +84,24 @@ public class ProfileFragmentRecruiter extends Fragment {
         String userId= firebaseAuth.getCurrentUser().getUid().toString();
         userIdRef=userRef.child(userId);
         profileRef = userIdRef.child("profile");
-
         profileRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String Name = dataSnapshot.child("fullname").getValue().toString();
-                String email = dataSnapshot.child("email").getValue().toString();
-                String phone = dataSnapshot.child("phone").getValue().toString();
-                String cn = dataSnapshot.child("companyname").getValue().toString();
-                String cl = dataSnapshot.child("companylocation").getValue().toString();
-                String field = dataSnapshot.child("fieldsOfWork").getValue().toString();
+                if (dataSnapshot.exists()) {
+                    String Name = dataSnapshot.child("fullname").getValue().toString();
+                    String email = dataSnapshot.child("email").getValue().toString();
+                    String phone = dataSnapshot.child("phone").getValue().toString();
+                    String cn = dataSnapshot.child("companyname").getValue().toString();
+                    String cl = dataSnapshot.child("companylocation").getValue().toString();
+                    String field = dataSnapshot.child("fieldsOfWork").getValue().toString();
 
-                recruiter_profile_name.setText(Name);
-                recruiter_profile_company_name.setText(cn);
-                recruiter_profile_email.setText(email);
-                recruiter_profile_phone.setText(phone);
-                recruiter_profile_company_location.setText(cl);
-                recruiter_field_of_work.setText(field);
+                    recruiter_profile_name.setText(Name);
+                    recruiter_profile_company_name.setText(cn);
+                    recruiter_profile_email.setText(email);
+                    recruiter_profile_phone.setText(phone);
+                    recruiter_profile_company_location.setText(cl);
+                    recruiter_field_of_work.setText(field);
+                }
             }
 
             @Override

@@ -20,7 +20,10 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="Job Post"
-        android:textSize="35dp" />
+        android:textSize="30dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/admin_deletedjobs_card_companyname"
@@ -30,7 +33,9 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="10dp"
         android:text="Company Name"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"/>
 
     <TextView
         android:id="@+id/admin_deletedjobs_card_companydescription"
@@ -40,14 +45,18 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="10dp"
         android:text="Company Description"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/admin_deletedjobs_card_workingtype"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="160dp"
         android:text="Working Type"
         android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
         android:layout_marginLeft="5dp"
         />
 

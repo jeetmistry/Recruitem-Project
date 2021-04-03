@@ -118,7 +118,7 @@ public class RecruiterLogin extends AppCompatActivity {
                     Toast.makeText(RecruiterLogin.this, "Password too short", Toast.LENGTH_SHORT).show();
                 }
                 final ProgressDialog pd = new ProgressDialog(RecruiterLogin.this);
-                pd.setTitle("Logging Recruiter");
+                pd.setTitle("Logging TPO");
                 pd.setMessage("Please wait, validating credentials and logging in.");
                 pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 pd.show();

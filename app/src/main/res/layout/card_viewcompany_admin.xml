@@ -20,7 +20,10 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="Full Name"
-        android:textSize="35dp" />
+        android:textSize="30dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/admin_viewcompany_card_email"
@@ -30,7 +33,9 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="10dp"
         android:text="Email"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"/>
 
     <TextView
         android:id="@+id/admin_viewcompany_card_phone"
@@ -40,7 +45,9 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="10dp"
         android:text="Phone"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"/>
     <TextView
         android:id="@+id/admin_viewcompany_card_companyname"
         android:layout_width="wrap_content"
@@ -49,6 +56,8 @@
         android:text="Company Name"
         android:textSize="20dp"
         android:layout_marginLeft="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
         />
     <TextView
         android:id="@+id/admin_viewcompany_card_companyloaction"
@@ -59,6 +68,8 @@
         android:textSize="20dp"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="30dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
         />
 
 

@@ -5,15 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui_student.StudentJobCardClickActivity"
+    android:background="@color/cardview_light_background"
     android:orientation="vertical"
     >
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APPLY FOR JOB"
+        android:textSize="30dp"
+        android:textColor="#00008B"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
 
+        />
     <TextView
         android:id="@+id/student_job_cardclick_jobpost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Job Post"
-        android:textSize="30dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
 
@@ -24,7 +39,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Company Name"
-        android:textSize="30dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
 
@@ -35,7 +52,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Company Description"
-        android:textSize="30dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
 
@@ -46,7 +65,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Working Type"
-        android:textSize="30dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
 

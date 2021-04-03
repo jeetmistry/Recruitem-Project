@@ -52,6 +52,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Previous Feedback"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             android:textSize="20dp"/>
         <TextView
             android:id="@+id/feedback_student_previousfeedback"
@@ -60,6 +63,8 @@
             android:text="No previous Feedback"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-condensed"
             android:textSize="15dp"/>
 
 

@@ -152,6 +152,7 @@ public class ProfileFragmentStudent extends Fragment {
         userRef=rootRef.child("student");
         String userId= firebaseAuth.getCurrentUser().getUid().toString();
         userIdRef=userRef.child(userId);
+
         profileRef=userIdRef.child("profile");
 
         student_profile_resumesavebutton = root.findViewById(R.id.student_profile_resumesavebutton);
@@ -159,7 +160,8 @@ public class ProfileFragmentStudent extends Fragment {
         profileRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
+                if(dataSnapshot.hasChildren()){
+
                     String Name = dataSnapshot.child("name").getValue().toString();
                     String email = dataSnapshot.child("email").getValue().toString();
                     String phone = dataSnapshot.child("phone").getValue().toString();

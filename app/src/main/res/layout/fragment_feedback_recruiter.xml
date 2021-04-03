@@ -24,15 +24,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         >
+
         <EditText
 
             android:id="@+id/editText_feedback_recruiter"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="195dp"
             android:layout_marginTop="30dp"
-            android:hint="Enter Feedback"
             android:gravity="bottom"
-            />
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Enter Feedback" />
     </com.google.android.material.textfield.TextInputLayout>
     <Button
 
@@ -52,12 +54,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Previous Feedback"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             android:textSize="20dp"/>
         <TextView
             android:id="@+id/feedback_recruiter_previousfeedback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="No previous Feedback"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-condensed"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:textSize="15dp"/>

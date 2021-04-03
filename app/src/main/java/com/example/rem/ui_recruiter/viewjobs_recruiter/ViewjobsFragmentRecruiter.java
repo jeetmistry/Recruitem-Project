@@ -77,7 +77,7 @@ public class ViewjobsFragmentRecruiter extends Fragment {
                 recruiterViewJobViewHolder.jobPost.setText(viewJobsRecruiter.getJobpost());
                 recruiterViewJobViewHolder.companyName.setText("Company Name : "+viewJobsRecruiter.getCompanyname());
                 recruiterViewJobViewHolder.companyDescription.setText("Description : "+viewJobsRecruiter.getCompanydescription());
-                recruiterViewJobViewHolder.workingtype.setText(" Working Type : "+viewJobsRecruiter.getWorkingtype());
+                recruiterViewJobViewHolder.workingtype.setText("Job Field : "+viewJobsRecruiter.getWorkingtype());
 
                 recruiterViewJobViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -16,7 +16,10 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="Name"
-        android:textSize="40dp"/>
+        android:textSize="30dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/admin_viewfeedback_card_feedback"
@@ -26,6 +29,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="10dp"
         android:text="Feedback Here"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-condensed"/>
 
 </androidx.cardview.widget.CardView>

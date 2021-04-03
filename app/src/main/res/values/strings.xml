@@ -43,7 +43,7 @@
 
     <string name="menu_deletedjobs_admin">Deleted Jobs</string>
     <string name="menu_profile_admin">Profile</string>
-    <string name="menu_viewcompanies_admin">View Companies</string>
+    <string name="menu_viewcompanies_admin">View TPO</string>
     <string name="menu_viewstudents_admin">View Students</string>
     <string name="menu_help_admin">Help</string>
     <string name="menu_viewfeedbacks_admin">View Feedbacks</string>
