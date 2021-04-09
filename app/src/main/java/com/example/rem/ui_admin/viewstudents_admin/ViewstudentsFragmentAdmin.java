@@ -80,7 +80,7 @@ public class ViewstudentsFragmentAdmin extends Fragment {
             protected void onBindViewHolder(@NonNull AdminViewStudentViewHolder adminViewStudentViewHolder, int i, @NonNull StoreStudentProfile storeStudentProfile) {
                 adminViewStudentViewHolder.fullname.setText(storeStudentProfile.getName());
                 adminViewStudentViewHolder.email.setText("Email :"+storeStudentProfile.getEmail());
-                adminViewStudentViewHolder.phone.setText("Phone :"+storeStudentProfile.getPhone());
+                adminViewStudentViewHolder.phone.setText("CGPA :"+storeStudentProfile.getPhone());
                 adminViewStudentViewHolder.city.setText("City : "+storeStudentProfile.getCity());
                 adminViewStudentViewHolder.qualification.setText("Qualification : "+storeStudentProfile.getQualification());
                 adminViewStudentViewHolder.collegename.setText("College Name : "+storeStudentProfile.getCollegeName());

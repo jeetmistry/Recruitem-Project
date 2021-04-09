@@ -96,7 +96,7 @@ public class HomeFragmentStudent extends Fragment {
                     //assigning values
                     name.setText("Name : "+Name);
                     emailid.setText("Email : "+email);
-                    phoneno.setText("Phone : "+phone);
+                    phoneno.setText("CGPA : "+phone);
                     city.setText("City : "+City);
                     qualification.setText("Qualification : "+Qualification);
                     collegename.setText("College Name : "+Collegename);

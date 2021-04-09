@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -43,9 +44,9 @@ public class JobsFragmentStudent extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference rootRef,userRef;
+    private DatabaseReference rootRef,userRef,fieldRef;
     private JobsViewModelStudent jobsViewModelStudent;
-    private String cn,cl,jp,wt;
+    private String cn,cl,jp,wt,uid,field;
     StudentViewJobViewHolder studentViewJobViewHolder ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -59,10 +60,23 @@ public class JobsFragmentStudent extends Fragment {
         viewjobRecycler.setLayoutManager(layoutManager);
         firebaseDatabase = FirebaseDatabase.getInstance();
         rootRef = firebaseDatabase.getReference();
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        uid = firebaseAuth.getCurrentUser().getUid();
+        fieldRef = rootRef.child("student").child(uid).child("profile").child("fields");
         //by entering manually userid
         userRef = rootRef.child("recruiter").child("32S2yattjRgpx2qraHstF5fQVH92").child("Jobs");
 
+        fieldRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                field = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         return root;
@@ -101,10 +115,12 @@ public class JobsFragmentStudent extends Fragment {
                             }
                         });
 
-                        return new ViewJobsStudent(snapshot.child("companyname").getValue().toString(),
-                                snapshot.child("companydescription").getValue().toString(),
-                                snapshot.child("jobpost").getValue().toString(),
-                                snapshot.child("workingtype").getValue().toString());
+                            return new ViewJobsStudent(snapshot.child("companyname").getValue().toString(),
+                                    snapshot.child("companydescription").getValue().toString(),
+                                    snapshot.child("jobpost").getValue().toString(),
+                                    snapshot.child("workingtype").getValue().toString());
+
+
                     }
                 })
                 .build();
@@ -112,22 +128,38 @@ public class JobsFragmentStudent extends Fragment {
         FirebaseRecyclerAdapter<ViewJobsStudent, StudentViewJobViewHolder> adapter = new FirebaseRecyclerAdapter<ViewJobsStudent, StudentViewJobViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull StudentViewJobViewHolder studentViewJobViewHolder, int i, @NonNull final ViewJobsStudent viewJobsStudent) {
-                studentViewJobViewHolder.companyName.setText("Company Name : "+viewJobsStudent.getCompanyname());
-                studentViewJobViewHolder.jobPost.setText(viewJobsStudent.getJobpost());
-                studentViewJobViewHolder.companyDescription.setText("Company Description : "+viewJobsStudent.getCompanydescription());
-                studentViewJobViewHolder.workingtype.setText("Field : "+viewJobsStudent.getWorkingtype());
+                if (viewJobsStudent.getWorkingtype().equals(field)) {
+                    studentViewJobViewHolder.companyName.setText("Company Name : " + viewJobsStudent.getCompanyname());
+                    studentViewJobViewHolder.jobPost.setText(viewJobsStudent.getJobpost());
+                    studentViewJobViewHolder.companyDescription.setText("Company Description : " + viewJobsStudent.getCompanydescription());
+                    studentViewJobViewHolder.workingtype.setText("Field : " + viewJobsStudent.getWorkingtype());
 
-                studentViewJobViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getContext(), StudentJobCardClickActivity.class);
-                        intent.putExtra("job post",viewJobsStudent.getJobpost());
-                        intent.putExtra("company name",viewJobsStudent.getCompanyname());
-                        intent.putExtra("company description",viewJobsStudent.getCompanydescription());
-                        intent.putExtra("working type",viewJobsStudent.getWorkingtype());
-                        startActivity(intent);
-                    }
-                });
+                    studentViewJobViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getContext(), StudentJobCardClickActivity.class);
+                            intent.putExtra("job post", viewJobsStudent.getJobpost());
+                            intent.putExtra("company name", viewJobsStudent.getCompanyname());
+                            intent.putExtra("company description", viewJobsStudent.getCompanydescription());
+                            intent.putExtra("working type", viewJobsStudent.getWorkingtype());
+                            startActivity(intent);
+
+                        }
+                    });
+                }
+                else{
+                    studentViewJobViewHolder.companyName.setText("Company Name : Hidden");
+                    studentViewJobViewHolder.jobPost.setText("Hidden (Cannot Apply)");
+                    studentViewJobViewHolder.companyDescription.setText("Company Description : Hidden ");
+                    studentViewJobViewHolder.workingtype.setText("Field : Hidden");
+
+                    studentViewJobViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(),"Cannot See or Apply job other than " + field +" field",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
 
             @NonNull

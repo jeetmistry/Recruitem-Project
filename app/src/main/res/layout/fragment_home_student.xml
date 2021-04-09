@@ -67,17 +67,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/student_home_info_email"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="PHONE NO"
-        android:textSize="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:fontFamily="sans-serif-condensed"
-        android:visibility="gone"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/student_home_info_phoneno"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -123,6 +113,17 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/student_home_info_clgname"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="PHONE NO"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-condensed"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/student_home_info_phoneno"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
