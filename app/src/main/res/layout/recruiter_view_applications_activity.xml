@@ -24,14 +24,61 @@ app:layout_constraintStart_toStartOf="parent"
 app:layout_constraintTop_toTopOf="parent"
     />
 
-<androidx.recyclerview.widget.RecyclerView
-android:layout_marginTop="50dp"
-android:id="@+id/recyclerView_viewapplications_recruiterr"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-    >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_viewapplications_recruiterr"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/text_viewapplications_recruiterr">
 
-</androidx.recyclerview.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="408dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_viewapplications_recruiterr"
+        app:layout_constraintVertical_bias="0.0"
+        android:background="@color/colorWhite">
+
+        <Button
+
+            android:id="@+id/button_download_excel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="  Download Excel  "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:background="@drawable/button">
+
+        </Button>
+
+        <Button
+            android:id="@+id/button_download_excel2"
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorWhite"
+            android:shadowColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.669"
+            app:layout_constraintStart_toEndOf="@+id/button_download_excel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 

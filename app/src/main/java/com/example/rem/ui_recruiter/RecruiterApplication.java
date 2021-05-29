@@ -3,16 +3,25 @@ package com.example.rem.ui_recruiter;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.DocumentsContract;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.rem.BuildConfig;
 import com.example.rem.Model.ApplyJobStudent;
 import com.example.rem.R;
 import com.example.rem.ViewHolders.RecruiterViewApplicationViewHolder;
@@ -27,14 +36,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+
 public class RecruiterApplication extends AppCompatActivity {
     TextView textView ;
-    String branch;
+    String branch,file1,file2;
 
     private RecruiterViewApplicationsViewModel recruiterViewApplicationsViewModel;
     private RecyclerView viewapplicationsRecycler;
     RecyclerView.LayoutManager layoutManager;
     private FirebaseAuth firebaseAuth;
+    Button openExcel1, openExcel2;
+
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference rootRef, userRef, userIdRef, appliedJobsRef, jobRef, branchRef;
@@ -45,6 +58,9 @@ public class RecruiterApplication extends AppCompatActivity {
         viewapplicationsRecycler = findViewById(R.id.recyclerView_viewapplications_recruiterr);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         viewapplicationsRecycler.setLayoutManager(layoutManager);
+        openExcel1 = findViewById(R.id.button_download_excel);
+        openExcel2 = findViewById(R.id.button_download_excel2);
+
         textView = findViewById(R.id.text_viewapplications_recruiterr);
         Intent intent = getIntent();
         branch = intent.getStringExtra("branch");
@@ -53,8 +69,47 @@ public class RecruiterApplication extends AppCompatActivity {
         jobRef = rootRef.child("Job Applications");
         branchRef = jobRef.child(branch);
         textView.setText("Applications for : "+branch);
+        openExcel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (branch.equals("IT")) {
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1IH7N8FcUpL7aslOR2XsngaHAMLA5GKFjgeTwnO9tBl4/edit#gid=0");
+                }
+                if(branch.equals("CO")){
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1Ch2prIGM9IGxXPBIHPfLkec0dIuiOzMubFQgoZ36xYY/edit#gid=0");
+                }
+                if(branch.equals("ETRX")){
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1FcEaEhEYg0xBetGHu6ntQxZYiE_EhXtvBntMk5HmXac/edit#gid=0");
+                }
+                if(branch.equals("EXTC")){
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1A-kzbUMlcztOi1CdLux8Fm0WU_qAtULefxdHlDBs54g/edit#gid=0");
+                }
+            }
+        });
+        openExcel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (branch.equals("IT")) {
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1PGFDoTb8TY6pBaZqTLtFhIcMAAwVc4IOvE2EVCxjMMQ/edit#gid=0");
+                }
+                if(branch.equals("CO")){
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1hbH99OteJM2Y-LAw-x6e-Ifg25vHt3eu9BIOj7Hp_DU/edit#gid=0");
+                }
+                if(branch.equals("ETRX")){
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1BoC1jN0L6eLSwOrDsDskYi_y0cCjshaD-SPMQkJ6m84/edit#gid=0");
+                }
+                if(branch.equals("EXTC")){
+                    gotoUrl("https://docs.google.com/spreadsheets/d/1P7Ikv6ynsOZ8gWw0b3qSpd9nXHmGEgEcNCkHmMGZ0no/edit#gid=0");
+                }
+            }
+        });
 
     }
+    private void gotoUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+    }
+
 
     @Override
     protected void onStart() {
